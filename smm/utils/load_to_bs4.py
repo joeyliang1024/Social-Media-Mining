@@ -11,7 +11,7 @@ def load_html_to_soup(url):
         if response.status_code == 200:
             # Parse the HTML content into BeautifulSoup object
             soup = BeautifulSoup(response.content, 'html.parser')
-            print("HTML content loaded and parsed successfully.")
+            #print("HTML content loaded and parsed successfully.")
             return soup
         else:
             print(f"Error: Failed to load HTML content (Status Code: {response.status_code})")
