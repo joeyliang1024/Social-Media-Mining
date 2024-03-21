@@ -1,6 +1,6 @@
 import requests
 import random
-from smm.utils.constant import PROXY_URL
+from smm.utils.constant import PROXY_LIST
 def load_proxy_list(url):
     try:
         # Fetch proxy list from the URL
@@ -18,34 +18,14 @@ def load_proxy_list(url):
         return None
 
 
-def request_with_proxy(url, proxy_list_url):
-    proxy_list = load_proxy_list(proxy_list_url)
-
+def request_with_proxy(url):
+    #proxy_list = load_proxy_list(proxy_list_url)
+    proxy_list = PROXY_LIST
     if proxy_list:
         while proxy_list:
-            # Select a random proxy from the list
-            proxy = random.choice(proxy_list)
-
-            # Get the proxy address
-            proxy_address = proxy.get('ip')
-            port = proxy.get('port', None)  # Get port with default value None if not provided
-
-            # Check if the proxy address is available
-            if proxy_address:
-                # Append port to proxy address if provided
-                if port:
-                    proxy_address = f"{proxy_address}:{port}"
-
+            for proxy in proxy_list:
                 try:
-                    # Configure proxy settings for requests
-                    proxies = {
-                        "http": f"socks4://{proxy_address}",
-                        "https": f"socks4://{proxy_address}"
-                    }
-
-                    # Send GET request to the URL with proxy settings
-                    response = requests.get(url, proxies=proxies)
-
+                    response = requests.get(url, proxies=proxy)
                     # Check if the request was successful (status code 200)
                     if response.status_code == 200:
                         print("Request successful")
@@ -53,11 +33,9 @@ def request_with_proxy(url, proxy_list_url):
                         return response
                     else:
                         print(f"Error: Failed to load URL (Status Code: {response.status_code})")
-
                 except requests.RequestException as e:
                     # Handle any request exceptions
                     print(f"Error: {e}")
-
                 # Remove the problematic proxy from the list
                 proxy_list.remove(proxy)
                 print("Proxy removed due to failure. Trying another proxy...")

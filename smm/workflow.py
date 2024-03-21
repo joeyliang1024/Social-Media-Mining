@@ -1,4 +1,4 @@
-from smm.utils.load_to_bs4 import load_html_to_soup, load_json
+from smm.utils.load import load_html_to_soup, load_json
 from smm.utils.save_file import save_data_to_json
 from smm.utils.extract_elements import extract_elements_by_class
 from smm.utils.constant import HOME_PAGE_URL, HOME_PAGE_BOOK_PTH
