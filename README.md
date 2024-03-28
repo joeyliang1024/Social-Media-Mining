@@ -4,6 +4,7 @@
 - selenium
 - requests
 - tqdm
+
 if not install:
 ```bash
 pip install selenium requests tqdm
