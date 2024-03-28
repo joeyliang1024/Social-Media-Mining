@@ -17,7 +17,7 @@ class SingleBookProcessor:
         self.type_name = type_name
         self.first_page_url = first_page_url # book's fist page url will be save here
         self.total_section_num = 0           # total sections number of this book
-        self.sections = {}                   # ex: {"附錄1":{"first_page_url":"https://123456789"},"附錄2":{"first_page_url":"https://111222333"}}
+        self.sections = {}                   # ex: {"附錄1":{"section_first_page":"https://123456789"},"附錄2":{"section_first_page":"https://111222333"}}
         self.data = {}                       # not defined yet
 
     def title_cleaning(self, origin_title):
