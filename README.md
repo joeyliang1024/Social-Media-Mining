@@ -8,8 +8,8 @@
     - `SingleBookProcessor`: 單一書籍爬蟲程式碼
     - `MutiThreadProcessor`: 多線程主程式碼
 ```python
-from law_processer.crawer import MutiThreadLawProcessor
-processor = MutiThreadLawProcessor("明實錄.json")
+from law_processer.crawer import MutiThreadProcessor
+processor = MutiThreadProcessor("明實錄.json")
 processor.muti_thread_crawling()
 ```
 - law_processor: 其他網頁的多線程程式
