@@ -2,7 +2,12 @@
 ## HomeWork1: Crawler
 ### Installation:
 - selenium
-- request
+- requests
+- tqdm
+if not install:
+```bash
+pip install selenium requests tqdm
+```
 ### Package:
 - smm: 我們的作業package~
     - `SingleBookProcessor`: 單一書籍爬蟲程式碼
