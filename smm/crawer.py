@@ -27,6 +27,7 @@ class SingleBookProcessor:
         return ' '.join(title_list)
 
     def get_all_sections(self):
+        self.driver.get(self.first_page_url)
         self.total_section_num = len(self.driver.find_element(By.XPATH, '//*[@class="div3"]/table').find_elements(By.TAG_NAME, 'tr'))-3
         self.sections = {column.find_element(By.TAG_NAME, 'font').text:{"section_first_page":column.find_element(By.TAG_NAME, 'font').find_element(By.XPATH, '..').get_attribute('href')}
                          for column in self.driver.find_element(By.XPATH, '//*[@class="div3"]/table').find_elements(By.TAG_NAME, 'tr')[3:] 
@@ -53,33 +54,29 @@ class SingleBookProcessor:
     
     def crawling(self, progress_bar=None):
         '''
-        updata tqdm bar if finish a section.
-        Example code for this part:
-        ```python
-        self.driver.get(self.first_page_url)
+        start crawing the book data, updata tqdm bar if finish a section.
+        #TODO is finished
+        '''
         self.data[self.type_name] = {}
-        try:
-            result_dict = self.get_element_content()
-            self.data[self.type_name].update(result_dict)
-            if progress_bar:
-                progress_bar.update(len(result_dict))
-        except:
-            pass
-        while self.click_next_page():
+        for section in self.sections.keys():
+            self.driver.get(section['section_first_page'])
+            # Now is first page.
             try:
                 result_dict = self.get_element_content()
                 self.data[self.type_name].update(result_dict)
-                if progress_bar:
-                    progress_bar.update(len(result_dict))
             except:
                 pass
+            # Now is other pages.
+            while self.click_next_page():
+                try:
+                    result_dict = self.get_element_content()
+                    self.data[self.type_name].update(result_dict)
+                except:
+                    pass  
+            if progress_bar:
+                progress_bar.update(1)
             time.sleep(random.uniform(0, 5))
         self.driver.close()
-        ```
-        '''
-        #TODO
-        pass
-        
 
 class MutiThreadProcessor:
     def __init__(self, save_path):
@@ -88,7 +85,7 @@ class MutiThreadProcessor:
         self.driver = webdriver.Chrome(options=self.opts)
         self.init_url = None
         self.save_path = save_path
-        self.object_url_dict = {}
+        self.object_url_dict = {} # {"太祖":{"first_section_url":url1}, "太宗":{"first_section_url":url2}}
         self.data = {}
     
     def get_home_page(self):
@@ -141,7 +138,8 @@ class MutiThreadProcessor:
         not sure yet..., but maybe done 
         '''
         processor = SingleBookProcessor(type_name, type_info['first_page_url'])
-        pbar = tqdm(total=int(type_info['number_of_data']), desc=type_name)
+        processor.get_all_sections()
+        pbar = tqdm(total=int(processor.total_section_num), desc=type_name)
         processor.crawling(progress_bar=pbar)
         self.data.update(processor.data)
 
