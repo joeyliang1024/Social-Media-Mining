@@ -77,7 +77,7 @@ class SingleBookProcessor:
         #TODO is finished
         '''
         self.data[self.type_name] = {}
-        for section in self.sections.keys():
+        for section in self.sections.values():
             self.driver.get(section['section_first_page'])
             # Now is first page.
             try:
@@ -121,6 +121,7 @@ class MutiThreadProcessor:
                 # not found, refresh.
                 self.driver.refresh()
         self.init_url = self.driver.current_url
+        
 
     def load_books_tree_graph(self):
         try:
@@ -148,7 +149,7 @@ class MutiThreadProcessor:
         pbar = tqdm(total=int(processor.total_section_num), desc=type_name)
         processor.crawling(progress_bar=pbar)
         self.data.update(processor.data)
-
+        
     def muti_thread_crawling(self):
         self.get_home_page()
         print(f"Home page url this time: {self.init_url}")
@@ -159,7 +160,7 @@ class MutiThreadProcessor:
         self.get_all_craw_types()
         for key, value in self.object_url_dict.items():
             print(f"Book: {'　' * (6 - len(key))}{key}, Url: {value['first_page_url']}")
-        with ThreadPoolExecutor() as executor:
+        with ThreadPoolExecutor(max_workers=4) as executor:
             # Create a list of arguments for crawl_single_type
             type_names, type_infos = [], []
             for type_name, type_info in self.object_url_dict.items():
