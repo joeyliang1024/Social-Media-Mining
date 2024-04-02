@@ -14,7 +14,7 @@ pip install selenium requests tqdm
     - `SingleBookProcessor`: 單一書籍爬蟲程式碼
     - `MultiThreadProcessor`: 多線程主程式碼
 ```python
-from law_processer.crawer import MutiThreadProcessor
+from law_processer.crawer import MultiThreadProcessor
 processor = MultiThreadProcessor("明實錄.json")
 processor.multi_thread_crawling()
 ```
