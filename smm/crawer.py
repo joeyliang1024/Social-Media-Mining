@@ -96,7 +96,7 @@ class SingleBookProcessor:
                 progress_bar.update(1)
         self.driver.close()
 
-class MutiThreadProcessor:
+class MultiThreadProcessor:
     def __init__(self, save_path):
         self.opts = ChromeOptions()
         self.opts.add_argument("--headless")
@@ -150,7 +150,7 @@ class MutiThreadProcessor:
         processor.crawling(progress_bar=pbar)
         self.data.update(processor.data)
         
-    def muti_thread_crawling(self):
+    def multi_thread_crawling(self):
         self.get_home_page()
         print(f"Home page url this time: {self.init_url}")
         print(f"Now driver url location is at {self.init_url}")
