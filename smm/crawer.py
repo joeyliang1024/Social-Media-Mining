@@ -1,6 +1,7 @@
 import re
 import time
 import json
+import os
 import random
 from tqdm.auto import tqdm
 from concurrent.futures import ThreadPoolExecutor
@@ -12,11 +13,12 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 class SingleBookProcessor:
-    def __init__(self, type_name, first_page_url):
+    def __init__(self, type_name, first_page_url, save_path):
         self.opts = ChromeOptions()
         self.opts.add_argument("--headless")
         self.driver = webdriver.Chrome(options=self.opts)
         self.type_name = type_name
+        self.save_path = save_path
         self.first_page_url = first_page_url # book's fist page url will be save here
         self.total_section_num = 0           # total sections number of this book
         self.sections = {}                   # ex: {"附錄1":{"section_first_page":"https://123456789"},"附錄2":{"section_first_page":"https://111222333"}}
@@ -70,33 +72,48 @@ class SingleBookProcessor:
         except:
             return {"Title":"",
                     "Context":[]} 
+        
+    def save_book_result(self):
+        save_dir = os.path.join(self.save_path, self.type_name)
+        os.makedirs(save_dir, exist_ok=True) 
+        with open(os.path.join(save_dir, "result.json"), 'w', encoding='utf-8') as f:
+            json.dump(self.data, f, ensure_ascii=False)
 
     def crawling(self, progress_bar=None):
         '''
         start crawing the book data, updata tqdm bar if finish a section.
         #TODO is finished
         '''
-        self.data[self.type_name] = {}
+        self.data[self.type_name] = []
         for section in self.sections.values():
+            count = 0
             self.driver.get(section['section_first_page'])
             # Now is first page.
             try:
                 result_dict = self.get_element_content()
-                self.data[self.type_name].update(result_dict)
+                self.data[self.type_name].append(result_dict)
+                if progress_bar:
+                    count+=1
+                    progress_bar.set_postfix_str(f"Craw pages: {count}")
             except:
                 pass
             # Now is other pages.
             while self.click_next_page():
                 try:
                     result_dict = self.get_element_content()
-                    self.data[self.type_name].update(result_dict)
+                    self.data[self.type_name].append(result_dict)
+                    if progress_bar:
+                        count+=1
+                        progress_bar.set_postfix_str(f"Craw pages: {count}")
                 except:
                     pass  
             if progress_bar:
                 progress_bar.update(1)
+        progress_bar.close()
         self.driver.close()
+        self.save_book_result()
 
-class MultiThreadProcessor:
+class MutiThreadProcessor:
     def __init__(self, save_path):
         self.opts = ChromeOptions()
         self.opts.add_argument("--headless")
@@ -122,7 +139,6 @@ class MultiThreadProcessor:
                 self.driver.refresh()
         self.init_url = self.driver.current_url
         
-
     def load_books_tree_graph(self):
         try:
             msl_btn = self.driver.find_element(By.XPATH, '//*[@id="frmTitle"]/table/tbody/tr[4]/td/div/table/tbody/tr[3]/td[4]/a[2]')
@@ -144,13 +160,13 @@ class MultiThreadProcessor:
         self.object_url_dict = {book:{"first_page_url":url} for book, url in zip(book_names, urls)}
 
     def crawl_single_type(self, type_name, type_info):
-        processor = SingleBookProcessor(type_name, type_info['first_page_url'])
+        processor = SingleBookProcessor(type_name, type_info['first_page_url'], self.save_path)
         processor.get_all_sections()
         pbar = tqdm(total=int(processor.total_section_num), desc=type_name)
         processor.crawling(progress_bar=pbar)
         self.data.update(processor.data)
         
-    def multi_thread_crawling(self):
+    def muti_thread_crawling(self):
         self.get_home_page()
         print(f"Home page url this time: {self.init_url}")
         print(f"Now driver url location is at {self.init_url}")
@@ -175,5 +191,9 @@ class MultiThreadProcessor:
         self.driver.quit()
     
     def save_data(self):
-        with open(self.save_path, 'w', encoding='utf-8') as f:
+        os.makedirs(self.save_path, exist_ok=True) 
+        with open(os.path.join(self.save_path, "result.json"), 'w', encoding='utf-8') as f:
             json.dump(self.data, f, ensure_ascii=False)
+
+    
+
