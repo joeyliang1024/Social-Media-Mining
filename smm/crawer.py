@@ -221,4 +221,4 @@ class MutiThreadProcessor:
                     csv_format['title'].append(book_name)
                     csv_format['text'].append(text)
         df = pd.DataFrame(csv_format)
-        df.tocsv(os.path.join(self.save_path, "result.csv"), index = False)
+        df.to_csv(os.path.join(self.save_path, "result.csv"), index = False)
