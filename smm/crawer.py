@@ -10,7 +10,8 @@ from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-
+import concurrent.futures
+import pandas as pd
 
 class SingleBookProcessor:
     def __init__(self, type_name, first_page_url, save_path):
@@ -51,7 +52,7 @@ class SingleBookProcessor:
             self.driver.get(next_page_btn.get_attribute('href'))
             book_name = self.title_cleaning(self.driver.find_element(By.XPATH, '//*[@class="gobookmark"]').text)[1]
             # 睡一下，怕爬太快被封
-            time.sleep(random.uniform(0, 5))
+            time.sleep(random.uniform(3, 10))
             if book_name == self.type_name:
                 return True
             # 否：換下一本
@@ -101,6 +102,8 @@ class SingleBookProcessor:
             while self.click_next_page():
                 try:
                     result_dict = self.get_element_content()
+                    if result_dict["Title"]=="":
+                        self.driver.refresh()
                     self.data[self.type_name].append(result_dict)
                     if progress_bar:
                         count+=1
@@ -178,13 +181,25 @@ class MutiThreadProcessor:
             print(f"Book: {'　' * (6 - len(key))}{key}, Url: {value['first_page_url']}")
         with ThreadPoolExecutor(max_workers=4) as executor:
             # Create a list of arguments for crawl_single_type
-            type_names, type_infos = [], []
-            for type_name, type_info in self.object_url_dict.items():
-                type_names.append(type_name) 
-                type_infos.append(type_info)
+            # type_names, type_infos = [], []
+            # for type_name, type_info in self.object_url_dict.items():
+            #     type_names.append(type_name) 
+            #     type_infos.append(type_info)
             try:
-                # Use executor.map to apply crawl_single_type to each set of arguments
-                executor.map(self.crawl_single_type, type_names, type_infos)
+                threads = []
+                for type_name, type_info in self.object_url_dict.items():
+                    thread = executor.submit(self.crawl_single_type, type_name, type_info)
+                    threads.append(thread)
+                # Wait for all futures to complete
+                done, _ = concurrent.futures.wait(threads)
+                for future in done:
+                    try:
+                        result = future.result()
+                        # Process result if needed
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+            #    # Use executor.map to apply crawl_single_type to each set of arguments
+            #    executor.map(self.crawl_single_type, type_names, type_infos)
             except Exception as e:
                 print(f"An error occurred: {e}")
 
@@ -194,6 +209,16 @@ class MutiThreadProcessor:
         os.makedirs(self.save_path, exist_ok=True) 
         with open(os.path.join(self.save_path, "result.json"), 'w', encoding='utf-8') as f:
             json.dump(self.data, f, ensure_ascii=False)
-
-    
-
+        csv_format = {
+            'field':[],
+            'title':[],
+            'text':[]
+        }
+        for idx, (book_name, book_pages) in enumerate(self.data.items()):
+            for page in book_pages:
+                for text in page["Context"]:
+                    csv_format['field'].append(idx+1)
+                    csv_format['title'].append(book_name)
+                    csv_format['text'].append(text)
+        df = pd.DataFrame(csv_format)
+        df.tocsv(os.path.join(self.save_path, "result.csv"), index = False)
