@@ -21,12 +21,12 @@ nt trends. Utilizing Event-based Graph techniques, this model analyzes historica
 > Framework of the proposed model. We just show the calculations of the patent classification codes and one of the related companies for simplicity.
 ### Code
 We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
-Required packages:
+Required packages (**Python 3.6** !):
 - [PyTorch 1.7.1](https://pytorch.org/)
 - [tqdm](https://github.com/tqdm/tqdm)
 - [numpy](https://github.com/numpy/numpy)
-- pandas
-- matplotlib
+- [pandas](https://github.com/pandas-dev/pandas)
+- [matplotlib](https://github.com/matplotlib/matplotlib)
 ### Preprocessing
 Just run the `build_input.ipynb`
 
