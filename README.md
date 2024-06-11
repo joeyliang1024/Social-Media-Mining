@@ -11,6 +11,7 @@ You can find the complete data in this link: [link](https://drive.google.com/dri
 - The `merge_data.sqlite` should be put at `SMM` folder
 
 Patent level example:
+
 [patent example](pic/patent_level.png "Patent Example")
 
 Explanation of the data (we encode year 2018 as 0):
