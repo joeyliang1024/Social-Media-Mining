@@ -14,6 +14,8 @@ Patent level example:
 ![patent example](pic/patent_level.png "Patent Example")
 > [!NOTE]
 > we encode year 2018 as 0
+
+
 **Explanation of the data:**
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
 - **3-2-level.csv**: IPC Level mapping from 2 to 3.
@@ -35,6 +37,7 @@ We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 
 > **WARNING:** 
 > The Python env should be **Python 3.6**!
+
 
 **Required packages:**
 - [PyTorch 1.7.1](https://pytorch.org/)
