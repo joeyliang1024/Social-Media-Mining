@@ -12,7 +12,7 @@ You can find the complete data in this link: [link](https://drive.google.com/dri
 
 Patent level example:
 
-[patent example](pic/patent_level.png "Patent Example")
+[patent example](pic/patent_level.png)
 
 Explanation of the data (we encode year 2018 as 0):
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
