@@ -26,8 +26,7 @@ Explanation of the data:
 - **real-data.json**: Represent the company's patents in the year
 ## Final Project: Exploring Patent Trends in Taiwan with Event-based Graph Techniques
 ### Our Goal
-Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future pate
-nt trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
+Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future patent trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
 - **Data-Driven**: Uses real-world patent data (Taiwan) to identify trends.
 - **Dynamic**: Adapts to changes in technology and innovation.
 - **Predictive**: Forecasts areas likely to see growth in patent filings.
@@ -51,7 +50,7 @@ Required packages:
 Just run the `build_input.ipynb`
 
 ![split data](pic/split_data.png "Split Data")
-> We split the data into three parts: training ,validation and testing by year.
+> We split the data into three parts: training, validation and testing by year.
 ### Training
 Run the code:
 ```bash
