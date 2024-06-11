@@ -39,58 +39,80 @@ sh train.sh
 ```
 This code will ouptut the training result in `out.txt`
 ### Our Results
-#### No dropout
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Recall</th>
-      <th>DNCG</th>
-      <th>PHR</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Top-10</td>
-      <td>0.1577</td>
-      <td>0.3395</td>
-      <td>0.8381</td>
-    </tr>
-    <tr>
-      <td>Top-20</td>
-      <td>0.2349</td>
-      <td>0.3364</td>
-      <td>0.8995</td>
-    </tr>
-    <tr>
-      <td>Top-30</td>
-      <td>0.2837</td>
-      <td>0.3401</td>
-      <td>0.9217</td>
-    </tr>
-    <tr>
-      <td>Top-40</td>
-      <td>0.3150</td>
-      <td>0.3427</td>
-      <td>0.9321</td>
-    </tr>
-  </tbody>
-</table>
+<div style="display: flex; justify-content: space-around;">
+    <table>
+      <caption>No Dropout</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Recall</th>
+          <th>DNCG</th>
+          <th>PHR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Top-10</td>
+          <td>0.1175</td>
+          <td>0.1725</td>
+          <td>0.5491</td>
+        </tr>
+        <tr>
+          <td>Top-20</td>
+          <td>0.1646</td>
+          <td>0.1742</td>
+          <td>0.6304</td>
+        </tr>
+        <tr>
+          <td>Top-30</td>
+          <td>0.1868</td>
+          <td>0.1769</td>
+          <td>0.6612</td>
+        </tr>
+        <tr>
+          <td>Top-40</td>
+          <td>0.2006</td>
+          <td>0.1769</td>
+          <td>0.6800</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Paper Result</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Recall</th>
+          <th>DNCG</th>
+          <th>PHR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Top-10</td>
+          <td>0.1577</td>
+          <td>0.3395</td>
+          <td>0.8381</td>
+        </tr>
+        <tr>
+          <td>Top-20</td>
+          <td>0.2349</td>
+          <td>0.3364</td>
+          <td>0.8995</td>
+        </tr>
+        <tr>
+          <td>Top-30</td>
+          <td>0.2837</td>
+          <td>0.3401</td>
+          <td>0.9217</td>
+        </tr>
+        <tr>
+          <td>Top-40</td>
+          <td>0.3150</td>
+          <td>0.3427</td>
+          <td>0.9321</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
 
-#### Dropout 0.5
-目前還未跑完，目前是原始論文分數
-| Recall-10 | DNCG-10 | PHR-10 |
-| --------- | ------- | ------ |
-| 0.1175    | 0.1725  | 0.5491 |
-
-| Recall-20 | DNCG-20 | PHR-20 |
-| --------- | ------- | ------ |
-| 0.1646    | 0.1742  | 0.6304 |
-
-| Recall-30 | DNCG-30 | PHR-30 |
-| --------- | ------- | ------ |
-| 0.1868    | 0.1769  | 0.6612 |
-
-| Recall-40 | DNCG-40 | PHR-40 |
-| --------- | ------- | ------ |
-| 0.2006    | 0.1769  | 0.6800 |
