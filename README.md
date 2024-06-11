@@ -12,18 +12,17 @@ You can find the complete data in this link: [link](https://drive.google.com/dri
 > The `merge_data.sqlite` should be put at `SMM` folder
 
 
-IPC Patent level example:
-![patent example](pic/patent_level.png "Patent Example")
-> [!NOTE]
-> we encode year 2018 as 0
-
-
 Explanation of the data:
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
 - **3-2-level.csv**: IPC Level mapping from 2 to 3.
 - **4-3-level.csv**: IPC Level mapping from 3 to 4.
 - **5-4-level.csv**: IPC Level mapping from 4 to 5.
 - **real-data.json**: Represent the company's patents in the year
+> [!NOTE]
+> we encode year 2018 as 0
+> IPC Patent level example:
+> ![patent example](pic/patent_level.png "Patent Example")
+
 ## Final Project: Exploring Patent Trends in Taiwan with Event-based Graph Techniques
 ### Our Goal
 Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future patent trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
