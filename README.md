@@ -12,8 +12,9 @@ You can find the complete data in this link: [link](https://drive.google.com/dri
 
 Patent level example:
 ![patent example](pic/patent_level.png "Patent Example")
-
-Explanation of the data (we encode year 2018 as 0):
+> [!NOTE]
+> we encode year 2018 as 0
+**Explanation of the data:**
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
 - **3-2-level.csv**: IPC Level mapping from 2 to 3.
 - **4-3-level.csv**: IPC Level mapping from 3 to 4.
@@ -35,7 +36,7 @@ We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 > **WARNING:** 
 > The Python env should be **Python 3.6**!
 
-Required packages:
+**Required packages:**
 - [PyTorch 1.7.1](https://pytorch.org/)
 - [tqdm](https://github.com/tqdm/tqdm)
 - [numpy](https://github.com/numpy/numpy)
