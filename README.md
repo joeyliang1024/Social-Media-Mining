@@ -54,10 +54,10 @@ Just run the `build_input.ipynb`
 ### Training
 Run the code:
 ```bash
-sh train.sh
+sh EDGPAT/train.sh
 ```
 > [!NOTE]
-> This code will ouptut the training result in `out.txt`
+> This code will ouptut the training result in `EDGPAT/out.txt`
 
 ### Our Results
 |Origin Paper Results|Our Results|
