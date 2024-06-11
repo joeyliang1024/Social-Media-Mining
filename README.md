@@ -6,9 +6,19 @@
 ## Patent Crawler
 
 ## Data
-- You can find the complete data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
+You can find the complete data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
 - We use the data `merge_data.sqlite`  for training.
 - The `merge_data.sqlite` should be put at `SMM` folder
+
+Patent level example:
+[patent example](pic/patent_level.png "Patent Example")
+
+Explanation of the data (we encode year 2018 as 0):
+- **2-1-level.csv**: IPC Level mapping from 1 to 2.
+- **3-2-level.csv**: IPC Level mapping from 2 to 3.
+- **4-3-level.csv**: IPC Level mapping from 3 to 4.
+- **5-4-level.csv**: IPC Level mapping from 4 to 5.
+- **real-data.json**: Represent the company's patents in the year
 ## Final Project: Exploring Patent Trends in Taiwan with Event-based Graph Techniques
 ### Our Goal
 Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future pate
