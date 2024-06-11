@@ -6,6 +6,14 @@
 - We use the data `merge_data.sqlite`  for training.
 - The `merge_data.sqlite` should be put at `SMM` folder
 ## Final Project: Predicting Patent
+### Our Goal
+Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future pate
+nt trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
+- *Data-Driven*: Uses real-world patent data (Taiwan) to identify trends.
+- *Dynamic*: Adapts to changes in technology and innovation.
+- *Predictive*: Forecasts areas likely to see growth in patent filings.
+### Model FrameWork
+![model architecture](pic/model_architecture.png "Model Architecture")
 ### Code
 We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 Required packages:
@@ -21,4 +29,5 @@ Run the code:
 ```bash
 sh train.sh
 ```
+This code will ouptut the training result in `out.txt`
 
