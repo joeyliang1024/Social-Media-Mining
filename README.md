@@ -57,7 +57,9 @@ Run the code:
 ```bash
 sh train.sh
 ```
-This code will ouptut the training result in `out.txt`
+> [!NOTE]
+> This code will ouptut the training result in `out.txt`
+
 ### Our Results
 |Origin Paper Results|Our Results|
 |--|--|
