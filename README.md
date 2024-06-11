@@ -39,30 +39,15 @@ sh train.sh
 ```
 This code will ouptut the training result in `out.txt`
 ### Our Results
-<style>
-    .table-container {
-      display: flex;
-      justify-content: space-between;
-    }
-    table {
-      border-collapse: collapse;
-      margin-right: 20px;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-    }
-</style>
 <div class="table-container">
-    <table>
-      <caption>No Dropout</caption>
+    <table style="border-collapse: collapse; margin-right: 20px;">
+      <caption>First Table</caption>
       <thead>
         <tr>
           <th></th>
-          <th>Recall</th>
-          <th>DNCG</th>
-          <th>PHR</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">Recall</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">DNCG</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">PHR</th>
         </tr>
       </thead>
       <tbody>
@@ -92,14 +77,14 @@ This code will ouptut the training result in `out.txt`
         </tr>
       </tbody>
     </table>
-    <table>
-      <caption>Dropout 0.5 (not finish yet)</caption>
+    <table style="border-collapse: collapse; margin-right: 20px;">
+      <caption>Second Table</caption>
       <thead>
         <tr>
           <th></th>
-          <th>Recall</th>
-          <th>DNCG</th>
-          <th>PHR</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">Recall</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">DNCG</th>
+          <th style="border: 1px solid black; padding: 8px; text-align: center;">PHR</th>
         </tr>
       </thead>
       <tbody>
