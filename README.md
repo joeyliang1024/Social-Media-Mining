@@ -41,7 +41,6 @@ This code will ouptut the training result in `out.txt`
 ### Our Results
 #### No dropout
 <table>
-  <caption>Performance Metrics</caption>
   <thead>
     <tr>
       <th></th>
