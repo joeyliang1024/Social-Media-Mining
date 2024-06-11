@@ -1,11 +1,15 @@
 # SMM
+## Teammates
+王竣樺
+梁致銓
+曾繁斌
 ## Patent Crawler
 
 ## Data
 - You can find the complete data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
 - We use the data `merge_data.sqlite`  for training.
 - The `merge_data.sqlite` should be put at `SMM` folder
-## Final Project: Predicting Patent
+## Final Project: Exploring Patent Trends in Taiwan with Event-based Graph Techniques
 ### Our Goal
 Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future pate
 nt trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
@@ -25,6 +29,7 @@ Required packages:
 - matplotlib
 ### Preprocessing
 Just run the `build_input.ipynb`
+
 ![split data](pic/split_data.png "Split Data")
 > We split the data into three parts: training ,validation and testing by year.
 ### Training
