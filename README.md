@@ -8,15 +8,17 @@
 ## Data
 You can find the complete data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
 - We use the data `merge_data.sqlite`  for training.
-- The `merge_data.sqlite` should be put at `SMM` folder
+> [!TIP]
+> The `merge_data.sqlite` should be put at `SMM` folder
 
-Patent level example:
+
+IPC Patent level example:
 ![patent example](pic/patent_level.png "Patent Example")
 > [!NOTE]
 > we encode year 2018 as 0
 
 
-**Explanation of the data:**
+Explanation of the data:
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
 - **3-2-level.csv**: IPC Level mapping from 2 to 3.
 - **4-3-level.csv**: IPC Level mapping from 3 to 4.
@@ -35,11 +37,11 @@ nt trends. Utilizing Event-based Graph techniques, this model analyzes historica
 ### Code
 We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 
-> **WARNING:** 
+> [!WARNING]
 > The Python env should be **Python 3.6**!
 
 
-**Required packages:**
+Required packages:
 - [PyTorch 1.7.1](https://pytorch.org/)
 - [tqdm](https://github.com/tqdm/tqdm)
 - [numpy](https://github.com/numpy/numpy)
