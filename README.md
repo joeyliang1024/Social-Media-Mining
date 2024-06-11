@@ -39,7 +39,22 @@ sh train.sh
 ```
 This code will ouptut the training result in `out.txt`
 ### Our Results
-<div style="display: flex; justify-content: space-around;">
+<style>
+    .table-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    table {
+      border-collapse: collapse;
+      margin-right: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+</style>
+<div class="table-container">
     <table>
       <caption>No Dropout</caption>
       <thead>
@@ -78,7 +93,7 @@ This code will ouptut the training result in `out.txt`
       </tbody>
     </table>
     <table>
-      <caption>Paper Result</caption>
+      <caption>Dropout 0.5 (not finish yet)</caption>
       <thead>
         <tr>
           <th></th>
@@ -115,4 +130,3 @@ This code will ouptut the training result in `out.txt`
       </tbody>
     </table>
 </div>
-
