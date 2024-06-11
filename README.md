@@ -20,6 +20,7 @@ Explanation of the data:
 - **real-data.json**: Represent the company's patents in the year
 > [!NOTE]
 > we encode year 2018 as 0
+>
 > IPC Patent level example:
 > ![patent example](pic/patent_level.png "Patent Example")
 
