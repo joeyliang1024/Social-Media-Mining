@@ -39,79 +39,83 @@ sh train.sh
 ```
 This code will ouptut the training result in `out.txt`
 ### Our Results
-<div class="table-container">
-    <table style="border-collapse: collapse; margin-right: 20px;">
-      <caption>First Table</caption>
-      <thead>
-        <tr>
-          <th></th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">Recall</th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">DNCG</th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">PHR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Top-10</td>
-          <td>0.1175</td>
-          <td>0.1725</td>
-          <td>0.5491</td>
-        </tr>
-        <tr>
-          <td>Top-20</td>
-          <td>0.1646</td>
-          <td>0.1742</td>
-          <td>0.6304</td>
-        </tr>
-        <tr>
-          <td>Top-30</td>
-          <td>0.1868</td>
-          <td>0.1769</td>
-          <td>0.6612</td>
-        </tr>
-        <tr>
-          <td>Top-40</td>
-          <td>0.2006</td>
-          <td>0.1769</td>
-          <td>0.6800</td>
-        </tr>
-      </tbody>
-    </table>
-    <table style="border-collapse: collapse; margin-right: 20px;">
-      <caption>Second Table</caption>
-      <thead>
-        <tr>
-          <th></th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">Recall</th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">DNCG</th>
-          <th style="border: 1px solid black; padding: 8px; text-align: center;">PHR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Top-10</td>
-          <td>0.1577</td>
-          <td>0.3395</td>
-          <td>0.8381</td>
-        </tr>
-        <tr>
-          <td>Top-20</td>
-          <td>0.2349</td>
-          <td>0.3364</td>
-          <td>0.8995</td>
-        </tr>
-        <tr>
-          <td>Top-30</td>
-          <td>0.2837</td>
-          <td>0.3401</td>
-          <td>0.9217</td>
-        </tr>
-        <tr>
-          <td>Top-40</td>
-          <td>0.3150</td>
-          <td>0.3427</td>
-          <td>0.9321</td>
-        </tr>
-      </tbody>
-    </table>
+<div style="display: flex;">
+    <div style="margin-right: 20px;">
+        <table>
+            <caption>First Table</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Recall</th>
+                    <th>DNCG</th>
+                    <th>PHR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Top-10</td>
+                    <td>0.1175</td>
+                    <td>0.1725</td>
+                    <td>0.5491</td>
+                </tr>
+                <tr>
+                    <td>Top-20</td>
+                    <td>0.1646</td>
+                    <td>0.1742</td>
+                    <td>0.6304</td>
+                </tr>
+                <tr>
+                    <td>Top-30</td>
+                    <td>0.1868</td>
+                    <td>0.1769</td>
+                    <td>0.6612</td>
+                </tr>
+                <tr>
+                    <td>Top-40</td>
+                    <td>0.2006</td>
+                    <td>0.1769</td>
+                    <td>0.6800</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table>
+            <caption>Second Table</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Recall</th>
+                    <th>DNCG</th>
+                    <th>PHR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Top-10</td>
+                    <td>0.1577</td>
+                    <td>0.3395</td>
+                    <td>0.8381</td>
+                </tr>
+                <tr>
+                    <td>Top-20</td>
+                    <td>0.2349</td>
+                    <td>0.3364</td>
+                    <td>0.8995</td>
+                </tr>
+                <tr>
+                    <td>Top-30</td>
+                    <td>0.2837</td>
+                    <td>0.3401</td>
+                    <td>0.9217</td>
+                </tr>
+                <tr>
+                    <td>Top-40</td>
+                    <td>0.3150</td>
+                    <td>0.3427</td>
+                    <td>0.9321</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
