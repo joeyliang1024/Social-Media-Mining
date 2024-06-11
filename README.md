@@ -14,6 +14,7 @@ nt trends. Utilizing Event-based Graph techniques, this model analyzes historica
 - **Predictive**: Forecasts areas likely to see growth in patent filings.
 ### Model FrameWork
 ![model architecture](pic/model_architecture.png "Model Architecture")
+> Framework of the proposed model. We just show the calculations of the patent classification codes and one of the related companies for simplicity.
 ### Code
 We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 Required packages:
@@ -24,6 +25,8 @@ Required packages:
 - matplotlib
 ### Preprocessing
 Just run the `build_input.ipynb`
+![split data](pic/split_data.png "Split Data")
+> We split the data into three parts: training ,validation and testing by year.
 ### Training
 Run the code:
 ```bash
@@ -34,17 +37,22 @@ This code will ouptut the training result in `out.txt`
 #### No dropout
 | Recall-10 | DNCG-10 | PHR-10 |
 | --------- | ------- | ------ |
-| 0.1175    | 0.1725  | 0.5491 |
+| 0.1577    | 0.3395  | 0.8381 |
+
 | Recall-20 | DNCG-20 | PHR-20 |
 | --------- | ------- | ------ |
-| 0.1646    | 0.1742  | 0.6304 |
+| 0.2349    | 0.3364  | 0.8995 |
+
 | Recall-30 | DNCG-30 | PHR-30 |
 | --------- | ------- | ------ |
-| 0.1868    | 0.1769  | 0.6612 |
+| 0.2837    | 0.3401  | 0.9217 |
+
 | Recall-40 | DNCG-40 | PHR-40 |
 | --------- | ------- | ------ |
-| 0.2006    | 0.1769  | 0.6800 |
+| 0.3150    | 0.3427  | 0.9321 |
+
 #### Dropout 0.5
+目前還未跑完，目前是原始論文分數
 | Recall-10 | DNCG-10 | PHR-10 |
 | --------- | ------- | ------ |
 | 0.1175    | 0.1725  | 0.5491 |
