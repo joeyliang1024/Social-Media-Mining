@@ -40,7 +40,7 @@ sh train.sh
 This code will ouptut the training result in `out.txt`
 ### Our Results
 #### No dropout
-<table border="1">
+<table>
   <caption>Performance Metrics</caption>
   <thead>
     <tr>
