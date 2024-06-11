@@ -9,9 +9,9 @@
 ### Our Goal
 Our project focuses on developing a patent prediction model specifically for forecasting Taiwan's future pate
 nt trends. Utilizing Event-based Graph techniques, this model analyzes historical patent data to identify emerging trends and patterns.
-- *Data-Driven*: Uses real-world patent data (Taiwan) to identify trends.
-- *Dynamic*: Adapts to changes in technology and innovation.
-- *Predictive*: Forecasts areas likely to see growth in patent filings.
+- **Data-Driven**: Uses real-world patent data (Taiwan) to identify trends.
+- **Dynamic**: Adapts to changes in technology and innovation.
+- **Predictive**: Forecasts areas likely to see growth in patent filings.
 ### Model FrameWork
 ![model architecture](pic/model_architecture.png "Model Architecture")
 ### Code
@@ -30,4 +30,33 @@ Run the code:
 sh train.sh
 ```
 This code will ouptut the training result in `out.txt`
+### Our Results
+#### No dropout
+| Recall-10 | DNCG-10 | PHR-10 |
+| --------- | ------- | ------ |
+| 0.1175    | 0.1725  | 0.5491 |
+| Recall-20 | DNCG-20 | PHR-20 |
+| --------- | ------- | ------ |
+| 0.1646    | 0.1742  | 0.6304 |
+| Recall-30 | DNCG-30 | PHR-30 |
+| --------- | ------- | ------ |
+| 0.1868    | 0.1769  | 0.6612 |
+| Recall-40 | DNCG-40 | PHR-40 |
+| --------- | ------- | ------ |
+| 0.2006    | 0.1769  | 0.6800 |
+#### Dropout 0.5
+| Recall-10 | DNCG-10 | PHR-10 |
+| --------- | ------- | ------ |
+| 0.1175    | 0.1725  | 0.5491 |
 
+| Recall-20 | DNCG-20 | PHR-20 |
+| --------- | ------- | ------ |
+| 0.1646    | 0.1742  | 0.6304 |
+
+| Recall-30 | DNCG-30 | PHR-30 |
+| --------- | ------- | ------ |
+| 0.1868    | 0.1769  | 0.6612 |
+
+| Recall-40 | DNCG-40 | PHR-40 |
+| --------- | ------- | ------ |
+| 0.2006    | 0.1769  | 0.6800 |
