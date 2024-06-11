@@ -32,6 +32,7 @@ nt trends. Utilizing Event-based Graph techniques, this model analyzes historica
 ### Code
 We utilized the code from [EDGPAT](https://github.com/Hope-Rita/EDGPAT)
 > :warning: The Python env should be **Python 3.6**!
+
 Required packages:
 - [PyTorch 1.7.1](https://pytorch.org/)
 - [tqdm](https://github.com/tqdm/tqdm)
