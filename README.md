@@ -9,7 +9,7 @@
 1. `venv/Script/Activate`  
 1. `pip install -r requirements.txt` 
 ### Proxy Pool Usage  
-目前使用 **webshare** 的免費帳號提供的10個proxy
+We currently utilizing 10 proxies provided by the free account of [**Webshare**](https://www.webshare.io/).
 > [!WARNING]
 > **REMEMBER** del the save page part of `get_page()` or your computer will be filled with htmls 
 ### Run Crawler
@@ -21,20 +21,24 @@ python main.py
 python merger.py
 ```
 ## Data
-You can find the complete data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
+You can find the complete raw data in this link: [link](https://drive.google.com/drive/folders/126X007qTLFmRhL6Fr0MCaCgDAZLMSM7F?usp=sharing)
 - We use the data `merge_data.sqlite`  for training.
 > [!TIP]
-> The `merge_data.sqlite` should be put at `SMM` folder
+> The `merge_data.sqlite` should be put at `SMM` folder.
 
 
-Explanation of the data:
+Explanation of the preprocessed data (in `/SMM/EDGPAT/data`):
+> [!TIP]
+> The datasets below are for training, no need to preprocess.
+
+
 - **2-1-level.csv**: IPC Level mapping from 1 to 2.
 - **3-2-level.csv**: IPC Level mapping from 2 to 3.
 - **4-3-level.csv**: IPC Level mapping from 3 to 4.
 - **5-4-level.csv**: IPC Level mapping from 4 to 5.
-- **real-data.json**: Represent the company's patents in the year
+- **real-data.json**: Illustrate the company's patents within the current year.
 > [!NOTE]
-> we encode year 2018 as 0
+> we encode year 2018 as 0.
 >
 > IPC Patent level example:
 > ![patent example](pic/patent_level.png "Patent Example")
