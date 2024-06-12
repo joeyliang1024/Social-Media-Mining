@@ -59,7 +59,7 @@ def merge_sqlite_files(base_dir, output_file):
     print(f"所有資料庫已成功合併到 {output_file}")
 
 # 設置基本目錄和輸出文件
-base_dir = "./"
+base_dir = "../"
 output_file = "merged_data.sqlite"
 
 merge_sqlite_files(base_dir, output_file)
